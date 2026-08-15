@@ -5,8 +5,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sontucode.dev"),
 
   title: {
-    default: "Json Formatter - Free Developer Tools",
+    default: "JSON Formatter - Format, Validate & Beautify JSON Online",
     template: "%s | SontuCode",
+  },
+
+  alternates: {
+    canonical: "/json-formatter",
   },
 
   description:
@@ -31,6 +35,23 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "SontuCode",
+    title: "JSON Formatter - Format, Validate & Beautify JSON Online",
+    images: ["/og-image.png"],
+    description: "Format, beautify, validate and minify JSON online for free.",
+    url: "https://sontucode.dev/json-formatter",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "JSON Formatter - SontuCode",
+    description: "Format, beautify, validate and minify JSON online for free.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
@@ -40,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

@@ -1,26 +1,210 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+|--------------------------------------------------------------------------
+| SontuCode Design Tokens
+|--------------------------------------------------------------------------
+| Light theme only.
+| Calm, low-saturation colors designed for long developer sessions.
+|--------------------------------------------------------------------------
+*/
 
 @theme inline {
+  /* Core */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Surfaces */
+  --color-card: var(--card-bg);
+  --color-surface: var(--surface-soft);
+  --color-surface-hover: var(--surface-hover);
+
+  /* Borders */
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-border-strong: var(--border-strong);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  /* Brand */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-accent: var(--primary-accent);
+
+  /* Focus */
+  --color-ring: var(--ring);
+
+  /* Status */
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+
+  /* Editor */
+  --color-editor: var(--editor-bg);
+  --color-editor-text: var(--editor-text);
+  --color-editor-line: var(--editor-line);
+
+  /* Tooltip */
+  --color-tooltip: var(--tooltip-background);
+  --color-tooltip-text: var(--tooltip-text);
+
+  /* Brand */
+  --color-logo-bg: var(--logo-bg);
+
+  /* Typography */
+  --font-sans:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  --font-mono:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+
+:root {
+  color-scheme: light;
+
+  /* Page */
+  --background: #f5f7fa;
+  --foreground: #263238;
+
+  /* Surfaces */
+  --card-bg: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-hover: #f1f5f9;
+
+  /* Text */
+  --text-primary: #263238;
+  --text-secondary: #607080;
+  --text-muted: #8895a3;
+
+  /* Borders */
+  --border: #dfe5eb;
+  --border-soft: #e8edf2;
+  --border-strong: #cbd5df;
+
+  /* Primary */
+  --primary: #3b6ea8;
+  --primary-hover: #315f94;
+  --primary-soft: #e8f0f8;
+
+  /* Focus */
+  --ring: #6b9bd1;
+
+  /* Success */
+  --success: #287a55;
+  --success-soft: #edf8f2;
+
+  /* Danger */
+  --danger: #b94a48;
+  --danger-soft: #fdf0f0;
+
+  /* Warning */
+  --warning: #a66a24;
+  --warning-soft: #fff7e8;
+
+  /* JSON Editor */
+  --editor-bg: #f8fafc;
+  --editor-text: #334155;
+  --editor-line: #e9eef3;
+
+  /* Tooltip */
+  --tooltip-background: #334155;
+  --tooltip-text: #f8fafc;
+
+  /* Branding */
+  --logo-bg: #e8f0f8;
+  --primary-accent: #4f8f8b;
+}
+
+
+@layer base {
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background: var(--background);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: var(--background);
+    color: var(--foreground);
+
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  ::selection {
+    background: #dce9f7;
+    color: #263238;
+  }
+
+  textarea,
+  input,
+  select {
+    color: var(--text-primary);
+  }
+
+  textarea::placeholder,
+  input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* SontuCode
+                        │
+        ┌──────────────┼──────────────┐
+        │              │              │
+      Neutral         Brand          Status
+        │              │              │
+    Background       Primary       Success
+    Surface          Hover         Danger
+    Card             Soft          Warning
+    Border           Accent
+   Text */

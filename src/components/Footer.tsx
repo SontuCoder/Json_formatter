@@ -51,7 +51,7 @@ function FooterSocial() {
                             key={social.name}
                             href={social.href}
                             target="_blank"
-                            className="hover:bg-muted/10 flex h-8 w-8 items-center justify-center rounded-md border transition-all"
+                            className="hover:bg-primary-accent/20 flex h-8 w-8 items-center justify-center rounded-md border transition-all"
                         >
                             <social.icon className="h-4 w-4" />
                         </Link>

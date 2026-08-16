@@ -60,8 +60,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning>{children}</body>
+    <html lang="en" className="[scrollbar-gutter-stable]">
+      <body>{children}</body>
     </html>
   );
-}
+} 

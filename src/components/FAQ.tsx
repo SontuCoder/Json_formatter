@@ -5,7 +5,7 @@ import { faqs } from "@/config/data";
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
-
+    
     useEffect(() => {
         const html = document.documentElement;
         const prev = html.style.overflowY;

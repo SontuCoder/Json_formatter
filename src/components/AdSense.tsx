@@ -7,6 +7,7 @@ export default function AdSection({
     leftSlot,
     rightSlot,
 }: AdSectionProps) {
+    const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
     return (
         <section
             aria-label="Advertisements"
@@ -23,7 +24,7 @@ export default function AdSection({
                         <ins
                             className="adsbygoogle block w-full"
                             style={{ display: "block" }}
-                            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                            data-ad-client={ADSENSE_CLIENT}
                             data-ad-slot={leftSlot}
                             data-ad-format="auto"
                             data-full-width-responsive="true"
@@ -35,7 +36,7 @@ export default function AdSection({
                         <ins
                             className="adsbygoogle block w-full"
                             style={{ display: "block" }}
-                            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                            data-ad-client={ADSENSE_CLIENT}
                             data-ad-slot={rightSlot}
                             data-ad-format="auto"
                             data-full-width-responsive="true"

@@ -150,7 +150,7 @@ export default function Navbar() {
     }, [menuOpen]);
 
     return (
-        <header className="bg-background sticky top-0 z-50">
+        <header className="bg-text-muted/40 backdrop-blur-2xl sticky top-0 z-50">
             <Container>
                 <nav
                     aria-label="Primary Navigation"

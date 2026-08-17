@@ -13,17 +13,17 @@ export const navigation = [
 export const socials = [
     {
         name: "LinkedIn",
-        href: "https://linkedin.com/in/your-profile",
+        href: "https://www.linkedin.com/in/subhadip-maity-5ba595300/",
         icon: FaLinkedin,
     },
     {
         name: "Github",
-        href: "https://github.com/your-username",
+        href: "https://github.com/SontuCoder",
         icon: FaGithub,
     },
     {
         name: "Email",
-        href: "mailto:hello@yourdomain.com",
+        href: "mailto:subhadipmaity792@gmail.com",
         icon: MdMail
     },
 ] as const;

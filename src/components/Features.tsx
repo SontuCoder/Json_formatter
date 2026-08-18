@@ -43,7 +43,7 @@ export default function FeaturesSection() {
         <section
             id="features"
             aria-labelledby="features-heading"
-            className="scroll-mt-20 py-16 sm:py-20"
+            className="scroll-mt-20 py-10 sm:py-20"
         >
             <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
                 {/* Heading */}

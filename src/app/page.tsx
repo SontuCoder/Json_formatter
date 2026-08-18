@@ -5,16 +5,18 @@ import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
 import AdSection from "@/components/AdSense";
 import FeaturesSection from "@/components/Features";
+import JsonFormatter from "@/components/Formatter";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-        <main className="flex min-h-screen flex-col items-center justify-between">
-          <FeaturesSection />
-          <AdSection />
-          <FAQ />
-        </main> 
+      <main className="flex min-h-screen flex-col items-center justify-between">
+        <JsonFormatter />
+        <FeaturesSection />
+        <AdSection />
+        <FAQ />
+      </main> 
       <Footer />
     </>
   );

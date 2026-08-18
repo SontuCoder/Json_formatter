@@ -53,10 +53,11 @@
   --color-editor: var(--editor-bg);
   --color-editor-text: var(--editor-text);
   --color-editor-line: var(--editor-line);
-
+  --color-surface-bold: var(--surface-bold);
   /* Tooltip */
   --color-tooltip: var(--tooltip-background);
   --color-tooltip-text: var(--tooltip-text);
+
 
   /* Brand */
   --color-logo-bg: var(--logo-bg);
@@ -81,13 +82,14 @@
   color-scheme: light;
 
   /* Page */
-  --background: #f5f7fa;
+  --background: #edf3fd;
   --foreground: #263238;
 
   /* Surfaces */
   --card-bg: #ffffff;
   --surface-soft: #f8fafc;
   --surface-hover: #f1f5f9;
+  --surface-bold: #2c3e50;
 
   /* Text */
   --text-primary: #263238;

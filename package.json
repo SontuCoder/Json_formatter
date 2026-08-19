@@ -9,7 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.11.0",
+    "@codemirror/lang-json": "^6.0.2",
+    "@codemirror/state": "^6.7.1",
+    "@codemirror/view": "^6.43.9",
+    "@lezer/highlight": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.16",
+    "@replit/codemirror-indentation-markers": "^6.5.3",
     "clsx": "^2.1.1",
     "next": "16.3.1",
     "react": "19.2.8",

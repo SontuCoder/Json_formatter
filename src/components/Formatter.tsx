@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import JsonEditor from "./JsonEditor";
 
 type IndentOption = 2 | 4 | 8;
 
@@ -23,6 +24,9 @@ export default function JsonFormatter() {
     );
     const [indent, setIndent] = useState<IndentOption>(2);
     const [copied, setCopied] = useState(false);
+    const [saveMessage, setSaveMessage] = useState("");
+
+    const STORAGE_KEY = "sontucode-json-formatter";
 
     const inputStats = useMemo(() => {
         const characters = input.length;
@@ -159,11 +163,37 @@ export default function JsonFormatter() {
         setStatus("idle");
     }
 
+    function handleSave() {
+    if (!input.trim()) {
+        setError("Nothing to save.");
+        setStatus("invalid");
+        return;
+    }
+
+    localStorage.setItem(STORAGE_KEY, input);
+
+    setSaveMessage("JSON saved successfully.");
+
+    window.setTimeout(() => {
+        setSaveMessage("");
+    }, 2500);
+}
+
+function handleLoad() {
+    const savedJson = localStorage.getItem(STORAGE_KEY);
+
+    if (!savedJson) {
+        return;
+    }
+
+    setInput(savedJson);
+}
+
     return (
         <section
             id="formatter"
             aria-labelledby="formatter-heading"
-            className="scroll-mt-20 py-10 sm:py-14 w-full"
+            className="scroll-mt-20 py-6 sm:py-10 w-full"
         >
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
 
@@ -196,15 +226,23 @@ export default function JsonFormatter() {
                             >
                                 Load Example
                             </button>
+                            <button
+    type="button"
+    onClick={handleSave}
+    className="rounded-md border border-border bg-success/80 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-surface-hover hover:text-foreground"
+>
+    Save
+</button>
 
                             <button
                                 type="button"
                                 onClick={handleClear}
                                 disabled={!input && !output}
-                                className="rounded-md border border-border px-3 py-2 text-xs font-semibold text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                className="rounded-md border border-border px-3 py-2 text-xs font-semibold bg-primary text-white transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                             >
                                 Clear
                             </button>
+
                         </div>
                     </div>
 
@@ -223,7 +261,7 @@ export default function JsonFormatter() {
                                 </span>
                             </div>
 
-                            <textarea
+                            {/* <textarea
                                 value={input}
                                 onChange={(event) => {
                                     setInput(event.target.value);
@@ -235,6 +273,10 @@ export default function JsonFormatter() {
                                 id="input-text"
                                 aria-label="JSON input"
                                     className="min-h-105 w-full resize-y border-0 bg-editor-bg p-4 font-mono text-sm leading-6 text-text-primary outline-none placeholder:text-text-muted focus:ring-0"
+                            /> */}
+                            <JsonEditor 
+                            value={input}
+                            onChange={setInput}
                             />
                         </div>
 
@@ -251,7 +293,7 @@ export default function JsonFormatter() {
                                 </span>
                             </div>
 
-                            <textarea
+                            {/* <textarea
                                 value={output}
                                 readOnly
                                 spellCheck={false}
@@ -259,6 +301,10 @@ export default function JsonFormatter() {
                                 aria-label="JSON output"
                                 placeholder="Formatted JSON will appear here..."
                                 className="min-h-105 w-full resize-y border-0 bg-surface-soft p-4 font-mono text-sm leading-6 text-text-primary outline-none placeholder:text-text-muted"
+                            /> */}
+                            <JsonEditor
+                            value={output}
+                            readOnly
                             />
                         </div>
                     </div>
@@ -395,6 +441,35 @@ export default function JsonFormatter() {
                     </p>
                 </div>
             </div>
+            { saveMessage && (
+    <div
+        role="status"
+        aria-live="polite"
+        className="
+            fixed
+            bottom-6
+            left-1/2
+            z-100
+            -translate-x-1/2
+            rounded-lg
+            border-2
+            border-primary
+            bg-card
+            px-4
+            py-3
+            text-sm
+            font-semibold
+            text-foreground
+            shadow-2xl
+        "
+    >
+        <span className="mr-2 text-success">✓</span>
+        {saveMessage}
+    </div>
+)}
         </section>
     );
 }
+
+
+

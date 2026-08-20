@@ -154,6 +154,7 @@ export default function Navbar() {
             <Container>
                 <nav
                     aria-label="Primary Navigation"
+
                     className="flex h-14 items-center justify-between"
                 >
                     <div className="flex items-center gap-6">
@@ -179,12 +180,12 @@ export default function Navbar() {
                     </button>
                 </nav>
 
-                <div id="mobile-navigation">
+                <nav id="mobile-navigation" aria-label="Mobile Navigation" aria-hidden={!menuOpen}>
                     <MobileNavbarLinks
                         open={menuOpen}
                         onNavigate={() => setMenuOpen(false)}
                     />
-                </div>
+                </nav>
             </Container>
         </header>
     );

@@ -48,7 +48,6 @@ function FooterSocial() {
                     return (
                         <TooltipWrapper key={social.name} text={social.name}>
                         <Link
-                            key={social.name}
                             href={social.href}
                             target="_blank"
                             className="hover:bg-primary-accent/20 flex h-8 w-8 items-center justify-center rounded-md border transition-all"

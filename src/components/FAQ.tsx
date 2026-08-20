@@ -1,19 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { faqs } from "@/config/data";
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     
-    useEffect(() => {
-        const html = document.documentElement;
-        const prev = html.style.overflowY;
-        html.style.overflowY = "scroll";
-        return () => {
-            html.style.overflowY = prev;
-        };
-    }, []);
 
     return (
         <section

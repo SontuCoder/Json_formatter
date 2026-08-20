@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Fast, free and privacy-friendly developer tools that run directly in your browser.",
+    "Format, beautify, validate and minify JSON online for free.",
 
   applicationName: "SontuCode Json Formatter",
 

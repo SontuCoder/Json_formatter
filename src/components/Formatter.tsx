@@ -177,7 +177,7 @@ export default function JsonFormatter() {
         setStatus("invalid");
         return;
     }
-
+    try{
     localStorage.setItem(STORAGE_KEY, input);
 
     setSaveMessage("JSON saved successfully.");
@@ -185,16 +185,11 @@ export default function JsonFormatter() {
     window.setTimeout(() => {
         setSaveMessage("");
     }, 2500);
-}
 
-function handleLoad() {
-    const savedJson = localStorage.getItem(STORAGE_KEY);
-
-    if (!savedJson) {
-        return;
+    } catch {
+        setError("Unable to save JSON locally.");
+    setStatus("invalid");
     }
-
-    setInput(savedJson);
 }
 
     return (

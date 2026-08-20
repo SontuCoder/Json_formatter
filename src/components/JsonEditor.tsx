@@ -124,7 +124,7 @@ export default function JsonEditor({
                 EditorView.theme({
                     "&": {
                         width: "100%",
-                        Height: "480px",
+                        height: "480px",
                         maxHeight:"600px",
                         backgroundColor: "#fdfcf9",
                         color: "#334155",
@@ -148,22 +148,23 @@ export default function JsonEditor({
                     },
 
                     ".cm-gutters": {
-                        backgroundColor: "#f8fafc",
-                        color: "#8895a3",
+                        backgroundColor: "#faf8f3",
+                        color: "#263238",
+                        fontWeight: "550",
                         border: "none",
-                        borderRight: "1px solid #dfe5eb",
+                        borderRight: "1px solid #e8e3d9",
                     },
 
                     ".cm-gutterElement": {
-                        padding: "0 12px",
+                        padding: "0 8px",
                     },
 
                     ".cm-activeLineGutter": {
-                        backgroundColor: "#f1f5f9",
+                        backgroundColor: "#f9f6ef",
                     },
 
                     ".cm-activeLine": {
-                        backgroundColor: "#f8fafc",
+                        backgroundColor: "#fdfaf4",
                     },
 
                     "&.cm-focused": {
@@ -175,11 +176,11 @@ export default function JsonEditor({
                     },
 
                     ".cm-selectionBackground": {
-                        backgroundColor: "#dbeafe",
+                        backgroundColor: "#f1e6d2",
                     },
 
                     "&.cm-focused .cm-selectionBackground": {
-                        backgroundColor: "#dbeafe",
+                        backgroundColor: "#f1e6d2",
                     },
                 }),
 

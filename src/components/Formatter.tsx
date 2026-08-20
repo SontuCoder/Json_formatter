@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import JsonEditor from "./JsonEditor";
 
 type IndentOption = 2 | 4 | 8;
@@ -27,6 +27,14 @@ export default function JsonFormatter() {
     const [saveMessage, setSaveMessage] = useState("");
 
     const STORAGE_KEY = "sontucode-json-formatter";
+
+    useEffect(() => {
+        const savedJson = localStorage.getItem(STORAGE_KEY);
+    
+        if (savedJson) {
+            setInput(savedJson);
+        }
+    }, []);
 
     const inputStats = useMemo(() => {
         const characters = input.length;
@@ -445,23 +453,7 @@ function handleLoad() {
     <div
         role="status"
         aria-live="polite"
-        className="
-            fixed
-            bottom-6
-            left-1/2
-            z-100
-            -translate-x-1/2
-            rounded-lg
-            border-2
-            border-primary
-            bg-card
-            px-4
-            py-3
-            text-sm
-            font-semibold
-            text-foreground
-            shadow-2xl
-        "
+        className="fixed bottom-6 left-1/2 z-100 -translate-x-1/2 rounded-lg border-2 border-primary bg-card px-4 py-3 text-sm font-semibold text-foreground shadow-2xl"
     >
         <span className="mr-2 text-success">✓</span>
         {saveMessage}
@@ -470,6 +462,4 @@ function handleLoad() {
         </section>
     );
 }
-
-
 

@@ -50,6 +50,8 @@ function FooterSocial() {
                         <Link
                             href={social.href}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={social.name}
                             className="hover:bg-primary-accent/20 flex h-8 w-8 items-center justify-center rounded-md border transition-all"
                         >
                             <social.icon className="h-4 w-4" />

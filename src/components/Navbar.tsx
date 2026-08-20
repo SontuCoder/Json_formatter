@@ -27,7 +27,7 @@ function NavbarLogo() {
 
 function Heading() {
     return (
-        <h1 className="m-0 flex items-center gap-1 font-sans tracking-[-0.035em]">
+        <div className="m-0 flex items-center gap-1 font-sans tracking-[-0.035em]">
             <span className="text-[clamp(28px,5vw,42px)] font-extrabold leading-none text-primary">
                 JSON
             </span>
@@ -40,7 +40,7 @@ function Heading() {
                     &amp; VALIDATOR
                 </span>
             </span>
-        </h1>
+        </div>
     );
 }
 
@@ -137,24 +137,11 @@ export default function Navbar() {
         };
     }, []);
 
-    useEffect(() => {
-        if (menuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, [menuOpen]);
-
     return (
         <header className="bg-text-muted/40 backdrop-blur-2xl sticky top-0 z-50">
             <Container>
                 <nav
                     aria-label="Primary Navigation"
-
                     className="flex h-14 items-center justify-between"
                 >
                     <div className="flex items-center gap-6">
@@ -180,7 +167,10 @@ export default function Navbar() {
                     </button>
                 </nav>
 
-                <nav id="mobile-navigation" aria-label="Mobile Navigation" aria-hidden={!menuOpen}>
+                <nav 
+                id="mobile-navigation" 
+                aria-label="Mobile navigation" 
+                aria-hidden={!menuOpen}>
                     <MobileNavbarLinks
                         open={menuOpen}
                         onNavigate={() => setMenuOpen(false)}

@@ -49,10 +49,6 @@
   --color-warning: var(--warning);
   --color-warning-soft: var(--warning-soft);
 
-  /* Editor */
-  --color-editor: var(--editor-bg);
-  --color-editor-text: var(--editor-text);
-  --color-editor-line: var(--editor-line);
   --color-surface-bold: var(--surface-bold);
   /* Tooltip */
   --color-tooltip: var(--tooltip-background);
@@ -120,11 +116,6 @@
   /* Warning */
   --warning: #a66a24;
   --warning-soft: #fff7e8;
-
-  /* JSON Editor */
-  --editor-bg: #f8fafc;
-  --editor-text: #334155;
-  --editor-line: #e9eef3;
 
   /* Tooltip */
   --tooltip-background: #334155;

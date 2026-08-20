@@ -201,10 +201,10 @@ export default function JsonFormatter() {
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
 
                 <div className="mx-auto mb-8 max-w-2xl text-center">
-                    <p className="mt-3 text-sm leading-6 text-text-secondary sm:text-base">
+                    <h1 className="mt-3 text-sm leading-6 text-text-secondary sm:text-base">
                         Format, validate and minify JSON directly in your
                         browser. Your JSON stays on your device.
-                    </p>
+                    </h1>
                 </div>
 
                 {/* Main formatter */}
@@ -264,19 +264,6 @@ export default function JsonFormatter() {
                                 </span>
                             </div>
 
-                            {/* <textarea
-                                value={input}
-                                onChange={(event) => {
-                                    setInput(event.target.value);
-                                    setStatus("idle");
-                                    setError("");
-                                }}
-                                placeholder='Paste JSON here... e.g. {"name":"SontuCode"}'
-                                spellCheck={false}
-                                id="input-text"
-                                aria-label="JSON input"
-                                    className="min-h-105 w-full resize-y border-0 bg-editor-bg p-4 font-mono text-sm leading-6 text-text-primary outline-none placeholder:text-text-muted focus:ring-0"
-                            /> */}
                             <JsonEditor 
                             value={input}
                             onChange={setInput}
@@ -295,16 +282,6 @@ export default function JsonFormatter() {
                                     {outputStats.lines} lines
                                 </span>
                             </div>
-
-                            {/* <textarea
-                                value={output}
-                                readOnly
-                                spellCheck={false}
-                                id="output-text"
-                                aria-label="JSON output"
-                                placeholder="Formatted JSON will appear here..."
-                                className="min-h-105 w-full resize-y border-0 bg-surface-soft p-4 font-mono text-sm leading-6 text-text-primary outline-none placeholder:text-text-muted"
-                            /> */}
                             <JsonEditor
                             value={output}
                             readOnly
@@ -438,9 +415,7 @@ export default function JsonFormatter() {
                         <span className="text-text-primary">
                             Privacy first:
                         </span>{" "}
-                        Your JSON is processed directly in your browser.
-                        SontuCode does not store your JSON data on its
-                        servers.
+                        Your JSON is processed in your browser. SontuCode does not upload or store your JSON on its servers. If you use Save, your JSON is stored locally in your browser.
                     </p>
                 </div>
             </div>

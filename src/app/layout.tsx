@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Format, beautify, validate and minify JSON online for free.",
+    "Free online JSON formatter and validator. Format, beautify, validate, and minify JSON instantly in your browser. No upload or account required.",
 
   applicationName: "SontuCode Json Formatter",
 
@@ -24,6 +24,15 @@ export const metadata: Metadata = {
       url: "https://sontucode.dev",
     },
   ],
+  
+  keywords: [
+  "JSON formatter",
+  "JSON validator",
+  "JSON beautifier",
+  "JSON minifier",
+  "format JSON online",
+  "validate JSON online",
+],
 
   creator: "SontuCode",
 

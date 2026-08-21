@@ -14,7 +14,7 @@ function NavbarLogo() {
                 <div className="bg-primary-accent/40 flex items-center justify-center rounded-md p-px">
                     <img
                         src="/Hero.png"
-                        alt="Subhadip Maity"
+                        alt="SontuCode JSON Formatter"
                         width={35}
                         height={35}
                         className="rounded-md object-cover"

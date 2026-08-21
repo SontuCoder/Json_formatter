@@ -208,7 +208,7 @@ export default function JsonFormatter() {
                         id="formatter-heading"
                         className="text-2xl font-bold tracking-tight text-primary sm:text-3xl"
                     >
-                        Free JSON Formatter & Validator
+                        JSON Formatter & Validator
                     </h1>
                     <p className="mt-3 text-sm leading-6 text-text-secondary sm:text-base">
                         Format, validate and minify JSON directly in your

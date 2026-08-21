@@ -15,6 +15,8 @@ const SAMPLE_JSON = `{
   "active": true
 }`;
 
+const STORAGE_KEY = "sontucode-json-formatter";
+
 export default function JsonFormatter() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
@@ -26,7 +28,6 @@ export default function JsonFormatter() {
     const [copied, setCopied] = useState(false);
     const [saveMessage, setSaveMessage] = useState("");
 
-    const STORAGE_KEY = "sontucode-json-formatter";
 
     useEffect(() => {
         const savedJson = localStorage.getItem(STORAGE_KEY);

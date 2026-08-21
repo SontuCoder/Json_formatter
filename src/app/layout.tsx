@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
 
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "JSON Formatter - SontuCode",
     description: "Format, beautify, validate and minify JSON online for free.",
     images: ["/og-image.png"],

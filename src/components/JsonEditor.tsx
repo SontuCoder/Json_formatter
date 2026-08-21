@@ -116,6 +116,7 @@ export default function JsonEditor({
                 keymap.of([
                     ...defaultKeymap,
                     ...historyKeymap,
+                    ...foldKeymap,
                     indentWithTab,
                 ]),
 

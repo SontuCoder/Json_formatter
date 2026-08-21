@@ -4,9 +4,14 @@ import { useEffect, useState } from "react";
 
 
 export default function AdSection() {
-    const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-    const leftSlot = process.env.LEFT_AD_SLOT;
-    const rightSlot = process.env.RIGHT_AD_SLOT;
+    const ADSENSE_CLIENT =
+    process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+
+const leftSlot =
+    process.env.NEXT_PUBLIC_LEFT_AD_SLOT;
+
+const rightSlot =
+    process.env.NEXT_PUBLIC_RIGHT_AD_SLOT;
 
     const [leftVisible, setLeftVisible] = useState(false);
     const [rightVisible, setRightVisible] = useState(false);

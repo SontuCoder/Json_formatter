@@ -30,7 +30,7 @@ export default function JsonFormatter() {
 
     useEffect(() => {
         const savedJson = localStorage.getItem(STORAGE_KEY);
-    
+
         if (savedJson) {
             setInput(savedJson);
         }
@@ -172,25 +172,27 @@ export default function JsonFormatter() {
     }
 
     function handleSave() {
-    if (!input.trim()) {
-        setError("Nothing to save.");
-        setStatus("invalid");
-        return;
+        if (!input.trim()) {
+            setError("Nothing to save.");
+            setStatus("invalid");
+            return;
+        }
+        try {
+            localStorage.setItem(STORAGE_KEY, input);
+
+            setError("");
+        setStatus("idle");
+            setSaveMessage("JSON saved successfully.");
+
+            window.setTimeout(() => {
+                setSaveMessage("");
+            }, 2500);
+
+        } catch {
+            setError("Unable to save JSON locally.");
+            setStatus("invalid");
+        }
     }
-    try{
-    localStorage.setItem(STORAGE_KEY, input);
-
-    setSaveMessage("JSON saved successfully.");
-
-    window.setTimeout(() => {
-        setSaveMessage("");
-    }, 2500);
-
-    } catch {
-        setError("Unable to save JSON locally.");
-    setStatus("invalid");
-    }
-}
 
     return (
         <section
@@ -201,10 +203,16 @@ export default function JsonFormatter() {
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
 
                 <div className="mx-auto mb-8 max-w-2xl text-center">
-                    <h1 className="mt-3 text-sm leading-6 text-text-secondary sm:text-base">
+                    <h1
+                        id="formatter-heading"
+                        className="text-2xl font-bold tracking-tight text-primary sm:text-3xl"
+                    >
+                        Free JSON Formatter & Validator
+                    </h1>
+                    <p className="mt-3 text-sm leading-6 text-text-secondary sm:text-base">
                         Format, validate and minify JSON directly in your
                         browser. Your JSON stays on your device.
-                    </h1>
+                    </p>
                 </div>
 
                 {/* Main formatter */}
@@ -212,9 +220,9 @@ export default function JsonFormatter() {
                     {/* Toolbar */}
                     <div className="flex flex-col gap-4 border-b border-border p-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
-                            <h3 className="text-sm font-bold text-text-primary">
+                            <h2 className="text-sm font-bold text-text-primary">
                                 JSON Formatter
-                            </h3>
+                            </h2>
 
                             <p className="mt-1 text-xs text-text-secondary">
                                 Paste your JSON below to get started.
@@ -230,12 +238,12 @@ export default function JsonFormatter() {
                                 Load Example
                             </button>
                             <button
-    type="button"
-    onClick={handleSave}
-    className="rounded-md border border-border bg-success/80 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-surface-hover hover:text-foreground"
->
-    Save
-</button>
+                                type="button"
+                                onClick={handleSave}
+                                className="rounded-md border border-border bg-success/80 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-surface-hover hover:text-foreground"
+                            >
+                                Save
+                            </button>
 
                             <button
                                 type="button"
@@ -245,7 +253,6 @@ export default function JsonFormatter() {
                             >
                                 Clear
                             </button>
-
                         </div>
                     </div>
 
@@ -264,9 +271,9 @@ export default function JsonFormatter() {
                                 </span>
                             </div>
 
-                            <JsonEditor 
-                            value={input}
-                            onChange={setInput}
+                            <JsonEditor
+                                value={input}
+                                onChange={setInput}
                             />
                         </div>
 
@@ -283,14 +290,14 @@ export default function JsonFormatter() {
                                 </span>
                             </div>
                             <JsonEditor
-                            value={output}
-                            readOnly
+                                value={output}
+                                readOnly
                             />
                         </div>
                     </div>
 
                     {/* Controls */}
-                    <div className="border-t border-border p-4 bg-surface-bold/40">
+                    <div className="border-t border-border p-4 bg-surface-bold/30">
                         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between ">
                             {/* Primary actions */}
                             <div className="flex flex-wrap gap-2">
@@ -419,16 +426,16 @@ export default function JsonFormatter() {
                     </p>
                 </div>
             </div>
-            { saveMessage && (
-    <div
-        role="status"
-        aria-live="polite"
-        className="fixed bottom-6 left-1/2 z-100 -translate-x-1/2 rounded-lg border-2 border-primary bg-card px-4 py-3 text-sm font-semibold text-foreground shadow-2xl"
-    >
-        <span className="mr-2 text-success">✓</span>
-        {saveMessage}
-    </div>
-)}
+            {saveMessage && (
+                <div
+                    role="status"
+                    aria-live="polite"
+                    className="fixed bottom-6 left-1/2 z-100 -translate-x-1/2 rounded-lg border-2 border-primary bg-card px-4 py-3 text-sm font-semibold text-foreground shadow-2xl"
+                >
+                    <span className="mr-2 text-success">✓</span>
+                    {saveMessage}
+                </div>
+            )}
         </section>
     );
 }

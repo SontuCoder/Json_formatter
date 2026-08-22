@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 import TooltipWrapper from "@/lib/TooltipWrapper";
 import { navigation } from "@/config/data";
@@ -12,7 +13,7 @@ function NavbarLogo() {
         <TooltipWrapper text="Home">
             <Link href="/" aria-label="Home" className="hidden sm:block">
                 <div className="bg-primary-accent/40 flex items-center justify-center rounded-md p-px">
-                    <img
+                    <Image
                         src="/Hero.png"
                         alt="SontuCode JSON Formatter"
                         width={35}

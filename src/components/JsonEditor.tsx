@@ -204,7 +204,7 @@ export default function JsonEditor({
             view.destroy();
             viewRef.current = null;
         };
-    }, []);
+    }, [value, onChange, readOnly]);
 
     useEffect(() => {
         const view = viewRef.current;

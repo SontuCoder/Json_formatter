@@ -19,6 +19,14 @@ const STORAGE_KEY = "sontucode-json-formatter";
 
 export default function JsonFormatter() {
     const [input, setInput] = useState("");
+    useEffect(() => {
+        const savedJson = localStorage.getItem(STORAGE_KEY);
+
+        if (savedJson) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setInput(savedJson);
+        }
+    }, []);
     const [output, setOutput] = useState("");
     const [error, setError] = useState("");
     const [status, setStatus] = useState<"idle" | "valid" | "invalid">(
@@ -27,15 +35,6 @@ export default function JsonFormatter() {
     const [indent, setIndent] = useState<IndentOption>(2);
     const [copied, setCopied] = useState(false);
     const [saveMessage, setSaveMessage] = useState("");
-
-
-    useEffect(() => {
-        const savedJson = localStorage.getItem(STORAGE_KEY);
-
-        if (savedJson) {
-            setInput(savedJson);
-        }
-    }, []);
 
     const inputStats = useMemo(() => {
         const characters = input.length;
@@ -56,6 +55,7 @@ export default function JsonFormatter() {
             lines,
         };
     }, [output]);
+
 
     function parseJson() {
         if (!input.trim()) {
@@ -182,7 +182,7 @@ export default function JsonFormatter() {
             localStorage.setItem(STORAGE_KEY, input);
 
             setError("");
-        setStatus("idle");
+            setStatus("idle");
             setSaveMessage("JSON saved successfully.");
 
             window.setTimeout(() => {

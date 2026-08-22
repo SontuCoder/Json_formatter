@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sontucode.dev"),
@@ -71,13 +70,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="[scrollbar-gutter-stable]">
-      <body>
-        <Script
+      <script
         async
-        strategy="afterInteractive"
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`}
         crossOrigin="anonymous"
     />
+      <body>
     {children}</body>
     </html>
   );

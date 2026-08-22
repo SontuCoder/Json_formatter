@@ -3,7 +3,7 @@ export default function JsonLd() {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         name: "SontuCode JSON Formatter",
-        url: "https://sontucode.dev/json-formatter",
+        url: "https://json-formatter.sontucode.dev",
         description:
             "Free online JSON formatter and validator for formatting, beautifying, validating, and minifying JSON directly in your browser.",
         applicationCategory: "DeveloperApplication",

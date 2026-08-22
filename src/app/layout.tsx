@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sontucode.dev"),
+  metadataBase: new URL("https://json-formatter.sontucode.dev"),
 
   title: {
     default: "JSON Formatter - Format, Validate & Beautify JSON Online",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "/json-formatter",
+    canonical: "/",
   },
 
   description:
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://res.cloudinary.com/sontucoder/image/upload/v1787411157/favicon_pdmdqp.png",
   },
 
   openGraph: {
@@ -50,16 +51,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "SontuCode",
     title: "JSON Formatter - Format, Validate & Beautify JSON Online",
-    images: ["/og-image.png"],
     description: "Format, beautify, validate and minify JSON online for free.",
-    url: "https://sontucode.dev/json-formatter",
+    url: "https://json-formatter.sontucode.dev",
+    images: [{
+      url: "https://res.cloudinary.com/sontucoder/image/upload/v1787411159/og-image_megsli.png",
+      width: 1200,
+      height: 630,
+      alt: "SontuCode JSON Formatter",
+  }],
   },
 
   twitter: {
     card: "summary_large_image",
     title: "JSON Formatter - SontuCode",
     description: "Format, beautify, validate and minify JSON online for free.",
-    images: ["/og-image.png"],
+    images: ["https://res.cloudinary.com/sontucoder/image/upload/v1787411159/og-image_megsli.png"],
   },
 };
 
@@ -68,14 +74,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+
   return (
     <html lang="en" className="[scrollbar-gutter-stable]">
-      <script
+      {/* <head>
+      {adsenseClient && (<script
         async
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`}
         crossOrigin="anonymous"
-    />
+    /> )}
+    </head> */}
       <body>
+         {adsenseClient && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
     {children}</body>
     </html>
   );

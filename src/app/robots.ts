@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://sontucode.dev/sitemap.xml",
+        sitemap: "https://json-formatter.sontucode.dev/sitemap.xml",
     };
 }

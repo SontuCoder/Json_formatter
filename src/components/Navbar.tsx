@@ -14,7 +14,7 @@ function NavbarLogo() {
             <Link href="/" aria-label="Home" className="hidden sm:block">
                 <div className="bg-primary-accent/40 flex items-center justify-center rounded-md p-px">
                     <Image
-                        src="/Hero.png"
+                        src="https://res.cloudinary.com/sontucoder/image/upload/v1787411156/Hero_dhtvez.png"
                         alt="SontuCode JSON Formatter"
                         width={35}
                         height={35}

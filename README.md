@@ -2,7 +2,7 @@
 
 A fast, free, and privacy-friendly **JSON Formatter, Validator, Beautifier, and Minifier** built with Next.js and CodeMirror.
 
-🌐 **[Live 👉](https://json-formatter.sontucode.dev/)**
+🌐 **[Live 👉: Go...](https://json-formatter.sontucode.dev/)**
 ---
 
 ![Banner](./Readme_banner.png)

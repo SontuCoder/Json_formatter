@@ -78,15 +78,16 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="[scrollbar-gutter-stable]">
-      <body>
+      <head>
          {adsenseClient && (
-          <Script
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-          />
+            crossOrigin="anonymous">
+          </script>
         )}
-    {children}</body>
+    </head>
+      <body>{children}</body>
     </html>
   );
 } 

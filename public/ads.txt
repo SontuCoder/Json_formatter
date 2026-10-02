@@ -1,0 +1,4 @@
+#sontucode.dev ads.txt file - Last updated 10-02-2026
+
+OWNERDOMAIN=sontucode.dev
+google.com, pub-2166488800097265, DIRECT, f08c47fec0942fa0

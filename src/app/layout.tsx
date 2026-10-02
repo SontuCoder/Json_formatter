@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     follow: true,
   },
 
+  // Google AdSense verification
+  other: {
+    "google-adsense-account": "ca-pub-230388300097265",
+  },
+
   icons: {
     icon: "https://res.cloudinary.com/sontucoder/image/upload/v1787411157/favicon_pdmdqp.png",
   },
